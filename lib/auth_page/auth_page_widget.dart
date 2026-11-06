@@ -312,7 +312,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     .fromSTEB(
                                                         0.0, 12.0, 0.0, 24.0),
                                                 child: Text(
-                                                  'Let\'s get started by filling out the form below.',
+                                                  'Tu súper, en tu bolsillo. Ingresa tus datos para continuar.',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelMedium
@@ -360,7 +360,8 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     ],
                                                     obscureText: false,
                                                     decoration: InputDecoration(
-                                                      labelText: 'Email',
+                                                      labelText:
+                                                          'Correo electrónico',
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -503,7 +504,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     obscureText: !_model
                                                         .passwordVisibility,
                                                     decoration: InputDecoration(
-                                                      labelText: 'Password',
+                                                      labelText: 'Contraseña',
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -767,7 +768,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     .fromSTEB(
                                                         0.0, 12.0, 0.0, 24.0),
                                                 child: Text(
-                                                  'Let\'s get started by filling out the form below.',
+                                                  'Regístrate para hacer tus pedidos.',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelMedium
@@ -815,7 +816,8 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     ],
                                                     obscureText: false,
                                                     decoration: InputDecoration(
-                                                      labelText: 'Email',
+                                                      labelText:
+                                                          'Correo electrónico',
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -958,7 +960,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     obscureText: !_model
                                                         .passwordCreateVisibility,
                                                     decoration: InputDecoration(
-                                                      labelText: 'Password',
+                                                      labelText: 'Contraseña',
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1123,7 +1125,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                         .passwordConfirmVisibility,
                                                     decoration: InputDecoration(
                                                       labelText:
-                                                          'Confirm Password',
+                                                          'Confirmar contraseña',
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
