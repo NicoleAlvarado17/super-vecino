@@ -55,7 +55,9 @@ class _DetalleProductoPageWidgetState extends State<DetalleProductoPageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
+          iconTheme: IconThemeData(
+              color: FlutterFlowTheme.of(context).secondaryBackground),
+          automaticallyImplyLeading: true,
           title: Text(
             'Detalle del producto\n',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
