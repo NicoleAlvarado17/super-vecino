@@ -224,7 +224,6 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                 Align(
                                   alignment: Alignment(-1.0, 0),
                                   child: TabBar(
-                                    isScrollable: true,
                                     labelColor: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     unselectedLabelColor:
@@ -244,6 +243,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     .displaySmall
                                                     .fontStyle,
                                           ),
+                                          fontSize: 18.0,
                                           letterSpacing: 0.0,
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
@@ -265,6 +265,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                         .displaySmall
                                                         .fontStyle,
                                               ),
+                                              fontSize: 18.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                               fontStyle:
@@ -768,7 +769,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     .fromSTEB(
                                                         0.0, 12.0, 0.0, 24.0),
                                                 child: Text(
-                                                  'Regístrate para hacer tus pedidos.',
+                                                  'Regístrate para hacer tus pedidos. La contraseña debe tener mínimo 6 caracteres.',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelMedium
