@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "224020183602",
+    "project_id": "proyectos-fidelitas",
+    "storage_bucket": "proyectos-fidelitas.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224020183602:android:38f4a88a08734b5df19a2b",
+        "android_client_info": {
+          "package_name": "com.mycompany.supermercadolupi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWTfEsUK02xtqllm3KPAyZQRRDiDlAa-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224020183602:android:d8872a871c632909f19a2b",
+        "android_client_info": {
+          "package_name": "com.mycompany.supervecino"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWTfEsUK02xtqllm3KPAyZQRRDiDlAa-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
