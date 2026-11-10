@@ -46,6 +46,9 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
     _model.passwordTextController ??= TextEditingController();
     _model.passwordFocusNode ??= FocusNode();
 
+    _model.nombreCompletoTextController ??= TextEditingController();
+    _model.nombreCompletoFocusNode ??= FocusNode();
+
     _model.emailAddressCreateTextController ??= TextEditingController();
     _model.emailAddressCreateFocusNode ??= FocusNode();
 
@@ -165,40 +168,19 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                             ),
                             alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Súper Vecino',
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineMedium
-                                          .override(
-                                            font: GoogleFonts.interTight(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineMedium
-                                                      .fontStyle,
-                                            ),
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .headlineMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .headlineMedium
-                                                    .fontStyle,
-                                          ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    child: Image.network(
+                                      'https://raw.githubusercontent.com/NicoleAlvarado17/super-vecino/main/super_vecino_logo.png',
+                                      width: 240.0,
+                                      height: 118.0,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ],
@@ -224,7 +206,6 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                 Align(
                                   alignment: Alignment(-1.0, 0),
                                   child: TabBar(
-                                    isScrollable: true,
                                     labelColor: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     unselectedLabelColor:
@@ -244,6 +225,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     .displaySmall
                                                     .fontStyle,
                                           ),
+                                          fontSize: 18.0,
                                           letterSpacing: 0.0,
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
@@ -265,6 +247,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                         .displaySmall
                                                         .fontStyle,
                                               ),
+                                              fontSize: 18.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                               fontStyle:
@@ -768,7 +751,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     .fromSTEB(
                                                         0.0, 12.0, 0.0, 24.0),
                                                 child: Text(
-                                                  'Regístrate para hacer tus pedidos.',
+                                                  'Regístrate para hacer tus pedidos. La contraseña debe tener mínimo 6 caracteres.',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelMedium
@@ -797,6 +780,171 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                                 .labelMedium
                                                                 .fontStyle,
                                                       ),
+                                                ),
+                                              ),
+                                              Container(
+                                                width: double.infinity,
+                                                child: TextFormField(
+                                                  controller: _model
+                                                      .nombreCompletoTextController,
+                                                  focusNode: _model
+                                                      .nombreCompletoFocusNode,
+                                                  autofocus: false,
+                                                  enabled: true,
+                                                  obscureText: false,
+                                                  decoration: InputDecoration(
+                                                    isDense: false,
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          font:
+                                                              GoogleFonts.inter(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                    hintText: 'Nombre completo',
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          font:
+                                                              GoogleFonts.inter(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                    enabledBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Color(0xFFD1D5DB),
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              40.0),
+                                                    ),
+                                                    focusedBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Color(0xFF2E7D32),
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              40.0),
+                                                    ),
+                                                    errorBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              40.0),
+                                                    ),
+                                                    focusedErrorBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              40.0),
+                                                    ),
+                                                    filled: true,
+                                                    fillColor: FlutterFlowTheme
+                                                            .of(context)
+                                                        .secondaryBackground,
+                                                    contentPadding:
+                                                        EdgeInsets.all(24.0),
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                  cursorColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  enableInteractiveSelection:
+                                                      true,
+                                                  validator: _model
+                                                      .nombreCompletoTextControllerValidator
+                                                      .asValidator(context),
                                                 ),
                                               ),
                                               Padding(

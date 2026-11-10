@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_page_model.dart';
@@ -28,6 +29,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    _model.buscadorTextController ??= TextEditingController();
+    _model.buscadorFocusNode ??= FocusNode();
   }
 
   @override
@@ -96,6 +100,117 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                       ),
                 ),
+                Container(
+                  width: double.infinity,
+                  child: TextFormField(
+                    controller: _model.buscadorTextController,
+                    focusNode: _model.buscadorFocusNode,
+                    onChanged: (_) => EasyDebounce.debounce(
+                      '_model.buscadorTextController',
+                      Duration(milliseconds: 2000),
+                      () async {
+                        _model.busqueda = _model.buscadorTextController.text;
+
+                        safeSetState(() {});
+                      },
+                    ),
+                    autofocus: false,
+                    enabled: true,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      isDense: false,
+                      labelStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
+                                ),
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                              ),
+                      hintText: 'Buscar productos',
+                      hintStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
+                                ),
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                              ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xFFD1D5DB),
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(40.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xFF2E7D32),
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(40.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(40.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(40.0),
+                      ),
+                      filled: true,
+                      fillColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      contentPadding: EdgeInsets.all(16.0),
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
+                    cursorColor: FlutterFlowTheme.of(context).primaryText,
+                    enableInteractiveSelection: true,
+                    validator: _model.buscadorTextControllerValidator
+                        .asValidator(context),
+                  ),
+                ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -111,7 +226,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 16.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
+                        color: _model.categoriaSel == null ||
+                                _model.categoriaSel == ''
+                            ? Color(0xFF1B5E20)
+                            : Color(0xFF66BB6A),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   font: GoogleFonts.interTight(
@@ -147,7 +265,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
+                        color: _model.categoriaSel == 'Lácteos'
+                            ? Color(0xFF1B5E20)
+                            : Color(0xFF66BB6A),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   font: GoogleFonts.interTight(
@@ -183,7 +303,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
+                        color: _model.categoriaSel == 'Frutas'
+                            ? Color(0xFF1B5E20)
+                            : Color(0xFF66BB6A),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   font: GoogleFonts.interTight(
@@ -219,7 +341,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
+                        color: _model.categoriaSel == 'Abarrotes'
+                            ? Color(0xFF1B5E20)
+                            : Color(0xFF66BB6A),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   font: GoogleFonts.interTight(
@@ -250,13 +374,31 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     decoration: BoxDecoration(),
                     child: StreamBuilder<List<ProductosRecord>>(
                       stream: queryProductosRecord(
-                        queryBuilder: (productosRecord) =>
-                            productosRecord.where(
-                          'categoria',
-                          isEqualTo: _model.categoriaSel != ''
-                              ? _model.categoriaSel
-                              : null,
-                        ),
+                        queryBuilder: (productosRecord) => productosRecord
+                            .where(
+                              'categoria',
+                              isEqualTo: _model.categoriaSel != ''
+                                  ? _model.categoriaSel
+                                  : null,
+                            )
+                            .where(
+                              'nombre',
+                              isGreaterThanOrEqualTo: _model.busqueda != ''
+                                  ? _model.busqueda
+                                  : null,
+                            )
+                            .where(
+                              'nombre',
+                              isLessThanOrEqualTo: _model.busqueda == null ||
+                                      _model.busqueda == ''
+                                  ? ''
+                                  : '${_model.busqueda}~' != ''
+                                      ? _model.busqueda == null ||
+                                              _model.busqueda == ''
+                                          ? ''
+                                          : '${_model.busqueda}~'
+                                      : null,
+                            ),
                       ),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
@@ -383,6 +525,65 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       .bodyMedium
                                                       .fontStyle,
                                             ),
+                                      ),
+                                      FFButtonWidget(
+                                        onPressed: () async {
+                                          context.pushNamed(
+                                            DetalleProductoPageWidget.routeName,
+                                            queryParameters: {
+                                              'producto': serializeParam(
+                                                gridViewProductosRecord,
+                                                ParamType.Document,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              'producto':
+                                                  gridViewProductosRecord,
+                                            },
+                                          );
+                                        },
+                                        text: '+ Agregar',
+                                        options: FFButtonOptions(
+                                          height: 40.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                font: GoogleFonts.interTight(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontStyle,
+                                              ),
+                                          elevation: 0.0,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
                                       ),
                                     ],
                                   ),

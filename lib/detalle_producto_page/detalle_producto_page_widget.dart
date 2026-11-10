@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/ff_builtin_enums.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -54,8 +55,10 @@ class _DetalleProductoPageWidgetState extends State<DetalleProductoPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          iconTheme:
+              IconThemeData(color: FlutterFlowTheme.of(context).primaryText),
+          automaticallyImplyLeading: true,
           title: Text(
             'Detalle del producto\n',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -65,8 +68,8 @@ class _DetalleProductoPageWidgetState extends State<DetalleProductoPageWidget> {
                     fontStyle:
                         FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                   ),
-                  color: Colors.white,
-                  fontSize: 22.0,
+                  color: Color(0xFF14181B),
+                  fontSize: 18.0,
                   letterSpacing: 0.0,
                   fontWeight:
                       FlutterFlowTheme.of(context).headlineMedium.fontWeight,
@@ -107,9 +110,27 @@ class _DetalleProductoPageWidgetState extends State<DetalleProductoPageWidget> {
                           fontStyle:
                               FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
-                        fontSize: 24.0,
+                        fontSize: 28.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.bold,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
+                ),
+                Text(
+                  '${widget.producto?.categoria} · Disponibles: ${widget.producto?.stock.toString()}',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
+                        color: Color(0xFF6B7280),
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                         fontStyle:
                             FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                       ),
@@ -151,12 +172,98 @@ class _DetalleProductoPageWidgetState extends State<DetalleProductoPageWidget> {
                           fontStyle:
                               FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
+                        color: Color(0xFF6B7280),
+                        fontSize: 15.0,
                         letterSpacing: 0.0,
                         fontWeight:
                             FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                         fontStyle:
                             FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                       ),
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment:
+                      (FFMainAxisAlignment.spaceAround).flutterValue,
+                  children: [
+                    Text(
+                      'Cantidad',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        FlutterFlowIconButton(
+                          borderRadius: 8.0,
+                          buttonSize: 40.0,
+                          fillColor: FlutterFlowTheme.of(context).primary,
+                          icon: Icon(
+                            Icons.remove,
+                            color: FlutterFlowTheme.of(context).info,
+                            size: 24.0,
+                          ),
+                          onPressed: () async {
+                            _model.cantidad = _model.cantidad! + -1;
+                            safeSetState(() {});
+                          },
+                        ),
+                        Text(
+                          valueOrDefault<String>(
+                            _model.cantidad?.toString(),
+                            '1',
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                        ),
+                        FlutterFlowIconButton(
+                          borderRadius: 8.0,
+                          buttonSize: 40.0,
+                          fillColor: FlutterFlowTheme.of(context).primary,
+                          icon: Icon(
+                            Icons.add,
+                            color: FlutterFlowTheme.of(context).info,
+                            size: 24.0,
+                          ),
+                          onPressed: () async {
+                            _model.cantidad = _model.cantidad! + 1;
+                            safeSetState(() {});
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
                 FFButtonWidget(
                   onPressed: () async {
@@ -166,7 +273,7 @@ class _DetalleProductoPageWidgetState extends State<DetalleProductoPageWidget> {
                         widget.producto?.nombre,
                         '-',
                       ),
-                      cantidad: 1,
+                      cantidad: _model.cantidad,
                       precioUnitario: valueOrDefault<double>(
                         widget.producto?.precio,
                         0.0,
@@ -175,7 +282,8 @@ class _DetalleProductoPageWidgetState extends State<DetalleProductoPageWidget> {
                   },
                   text: 'Agregar al carrito',
                   options: FFButtonOptions(
-                    height: 40.0,
+                    width: double.infinity,
+                    height: 52.0,
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     iconPadding:
