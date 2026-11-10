@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -110,7 +111,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       Duration(milliseconds: 2000),
                       () async {
                         _model.busqueda = _model.buscadorTextController.text;
-
+                        _model.categoriaSel = null;
                         safeSetState(() {});
                       },
                     ),
@@ -391,11 +392,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               'nombre',
                               isLessThanOrEqualTo: _model.busqueda == null ||
                                       _model.busqueda == ''
-                                  ? ''
+                                  ? '~'
                                   : '${_model.busqueda}~' != ''
                                       ? _model.busqueda == null ||
                                               _model.busqueda == ''
-                                          ? ''
+                                          ? '~'
                                           : '${_model.busqueda}~'
                                       : null,
                             ),
@@ -470,11 +471,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(16.0),
-                                        child: Image.network(
-                                          gridViewProductosRecord.imagenUrl,
+                                        child: CachedNetworkImage(
+                                          fadeInDuration:
+                                              Duration(milliseconds: 500),
+                                          fadeOutDuration:
+                                              Duration(milliseconds: 500),
+                                          imageUrl:
+                                              gridViewProductosRecord.imagenUrl,
                                           width: double.infinity,
                                           height: 110.0,
-                                          fit: BoxFit.contain,
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
                                       Text(
