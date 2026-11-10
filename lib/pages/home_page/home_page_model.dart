@@ -8,9 +8,21 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   String? categoriaSel;
 
+  String? busqueda;
+
+  ///  State fields for stateful widgets in this page.
+
+  // State field(s) for buscador widget.
+  FocusNode? buscadorFocusNode;
+  TextEditingController? buscadorTextController;
+  String? Function(BuildContext, String?)? buscadorTextControllerValidator;
+
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    buscadorFocusNode?.dispose();
+    buscadorTextController?.dispose();
+  }
 }

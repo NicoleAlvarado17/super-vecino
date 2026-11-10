@@ -235,6 +235,42 @@ class _CarritoPageWidgetState extends State<CarritoPageWidget> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: 72.0,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFE8F5E9),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(12.0),
+                        topRight: Radius.circular(12.0),
+                        bottomLeft: Radius.circular(12.0),
+                        bottomRight: Radius.circular(12.0),
+                      ),
+                    ),
+                    child: Text(
+                      'Entrega a domicilio · 30-45 min · Pago contra entrega',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
